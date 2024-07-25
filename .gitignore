@@ -1,0 +1,40 @@
+# Perl local::lib directories
+/perl5/
+*.pl
+*.pm
+*.tgz
+*.gz
+*.tar
+*.zip
+
+# Perl-specific files and directories
+blib/
+build/
+Makefile
+Makefile.PL
+META.yml
+META.json
+pm_to_blib/
+*.dump
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+*.orig
+*.~*
+
+# IDE and editor-specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# Environment and dependency files
+.env
+local/
