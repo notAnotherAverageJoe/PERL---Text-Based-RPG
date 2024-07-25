@@ -1,7 +1,6 @@
 # Perl local::lib directories
 /perl5/
-*.pl
-*.pm
+
 *.tgz
 *.gz
 *.tar
