@@ -55,7 +55,17 @@ sub display {
     print "Fight Style: ", $self->{fightStyle}, "\n";
     print "Race: ", $self->{race}, "\n";
     print "Health: ", $self->{health}, "\n";  # Added health display
-    print "Backpack: ", $self->{backpack}, "\n";
+
+    print "Backpack: ";
+    if (%{$self->{backpack}}) {
+        foreach my $item (keys %{$self->{backpack}}) {
+            print "$item ($self->{backpack}{$item}), ";
+        }
+        print "\n";
+    } else {
+        print "Empty\n";
+    }
+    
 }
 
 sub add_to_backpack {
@@ -64,6 +74,7 @@ sub add_to_backpack {
     $self->{backpack}{$item} += $quantity;
     print "$item has been added to your backpack.\n";
 }
+
 # Method to use an item from the backpack
 sub use_item {
     my ($self, $item) = @_;
