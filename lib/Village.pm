@@ -21,7 +21,7 @@ sub village_quest{
     } else {
         say "You see multiple villagers have begun leaving there homes to see the slain harpy.";
         say "You walk up to a Dwarven couple and ask them about a place to stay";
-        asking_directions($adventurer);
+        asking_directions($adventurer)
     }
 
 }
@@ -56,12 +56,15 @@ sub asking_directions {
     if ($choice eq '1') {
         say "Thrain nods and points down the road, 'You’ll want to head to The Enchanted Mug. Best ale in the village and comfortable beds. Just follow this path and you'll see the sign.'";
         say "Brynja adds with a smile, 'Tell the innkeeper Brynja sent you, and you might get a discount on your first night.'";
+        enchanted_mug_path($adventurer);
     } elsif ($choice eq '2') {
         say "Thrain’s eyes light up with pride, 'Our village is known for its fine blacksmiths and vibrant marketplace. We supply armor and weapons to adventurers from all over.'";
         say "Brynja chimes in, 'And don't miss the market! Fresh produce, exotic spices, and beautiful crafts. It’s a sight to behold.'";
+        market_path($adventurer);
     } elsif ($choice eq '3') {
         say "Thrain gives you a thoughtful look, 'If you're passing through, be wary of the forest to the north. There have been reports of bandits.'";
         say "Brynja nods, 'But if you follow the main road east, you’ll reach the next town by nightfall. Safe travels, adventurer.'";
+        moving_on_path($adventurer);
     } else {
         say "The dwarves look at you, puzzled, 'I didn’t quite catch that. Could you repeat your choice?'";
     }
@@ -74,8 +77,24 @@ sub enchanted_mug_path{
 
 }
 
+sub market_path{
+    my ($adventurer) = @_;
+
+    say "You thank Thrain and Brynja for there help and head to the Market as suggested.";
+    
+}
 
 
+sub moving_on_path {
+    my ($adventurer) = @_;
+
+    say "You thank Thrain and Brynja for there help and head to the Market as suggested.";
+
+
+
+
+
+}
 
 1;
 
