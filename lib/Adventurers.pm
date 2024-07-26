@@ -82,5 +82,9 @@ sub take_damage {
     $self->{health} -= $damage;
     $self->{health} = 0 if $self->{health} < 0;
 }
+sub get_hp {
+    my ($self) = @_;
+    return $self->{health};
+}
 
 1;  # End of Adventurer package

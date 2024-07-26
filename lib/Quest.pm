@@ -30,7 +30,7 @@ sub combat {
     my $harpy = Harpy->new(
         name   => 'Stormclaw',
         age    => 5,
-        health => 80,
+        health => 40,
     );
 
     # Display initial stats
@@ -55,11 +55,21 @@ sub combat {
 
         if ($adventurer->{health} <= 0) {
             print "The adventurer has been defeated!\n";
-            last;
+            exit 1;
         }
     }
 
     print "Combat over.\n";
+    print "Adventurer's health: " . $adventurer->get_hp() . "\n";
+
+    print "You have won the day! However, ";
+    print "you are injured.. will you take refuge in the village tonight?";
+    print "Or will you camp in the wilderness for the night?";
+    print "Make your choice ", $adventurer->get_name(). " 1: Village || 2: Wilderness";
+
+
 }
+
+
 
 1;  # End of Quest package

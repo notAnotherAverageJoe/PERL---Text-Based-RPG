@@ -5,7 +5,7 @@ use FindBin;
 use lib "$FindBin::Bin/lib";
 use Term::ANSIColor;
 use Adventurers;
-use Quest;  # Import the Quest package
+use Quest;  
 use Harpy;
 # Create a new adventurer based on user input
 print color('bold green');
