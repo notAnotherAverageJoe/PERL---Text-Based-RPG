@@ -75,9 +75,6 @@ sub combat {
     print color ('reset');
     paths_to_take($adventurer);
 
-
-
-
 }
 
 sub paths_to_take{
