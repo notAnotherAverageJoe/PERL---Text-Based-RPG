@@ -7,6 +7,8 @@ use Term::ANSIColor;
 use Adventurers;
 use Quest;  
 use Harpy;
+
+use feature 'say';
 # Create a new adventurer based on user input
 print color('bold green');
 print "\t\t\t\tWelcome Adventurer to your epic quest.\n\n";

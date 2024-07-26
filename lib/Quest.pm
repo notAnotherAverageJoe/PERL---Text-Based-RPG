@@ -3,6 +3,7 @@ package Quest;
 use strict;
 use warnings;
 use Term::ANSIColor;
+use Village;
 
 sub start_quest {
     my ($adventurer) = @_;  # Receive the Adventurer object
@@ -26,6 +27,8 @@ sub start_quest {
         print "You throw a rock.\n";
         print "The harpy screeches and flies away in a fury!\n";
         print color ('reset');
+        print "You had an epic throw however, you slightly strained your wrist and now you must rest.";
+        paths_to_take($adventurer);
 
     }
     
@@ -70,20 +73,29 @@ sub combat {
     print color ('green');
     print "\n\nAdventurer's health: " . $adventurer->get_hp() . "\n";
     print color ('reset');
+    paths_to_take($adventurer);
 
+
+
+
+}
+
+sub paths_to_take{
+    my ($adventurer) = @_;
+
+    
     print "You have won the day! However, \n";
     print "you are injured.. will you take refuge in the village tonight? \n";
     print "Or will you camp in the wilderness for the night?\n";
     print "Make your choice ", $adventurer->get_name(). " 1: Village || 2: Wilderness\n";
+    #this will split into two seperate arks depending on the choice made.
     chomp(my $choice2 = <STDIN>);
     if ($choice2 eq "1"){
-        print "Sleeping in village do some\n";
+        print "So be it...\n";
+        Village::village_quest($adventurer)
     } else {
         print "Sleeping in woods.. add some\n";
     };
-
-    
-
 
 }
 
