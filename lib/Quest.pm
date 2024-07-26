@@ -14,14 +14,21 @@ sub start_quest {
     print "2: Throw a rock at a harpy\n";
 
     chomp(my $choice1 = <STDIN>);
-
+ 
     if ($choice1 eq "1") {
+        print color('bold red');
         print "A harpy approaches!\n";
+        print color ('reset');
         combat($adventurer);
     } else {
+        print color('bold red');
+
         print "You throw a rock.\n";
         print "The harpy screeches and flies away in a fury!\n";
+        print color ('reset');
+
     }
+    
 }
 
 # Combat function
@@ -59,17 +66,29 @@ sub combat {
         }
     }
 
-    print "Combat over.\n";
-    print "Adventurer's health: " . $adventurer->get_hp() . "\n";
+    print "Combat over.\n\n";
+    print color ('green');
+    print "\n\nAdventurer's health: " . $adventurer->get_hp() . "\n";
+    print color ('reset');
 
-    print "You have won the day! However, ";
-    print "you are injured.. will you take refuge in the village tonight?";
-    print "Or will you camp in the wilderness for the night?";
-    print "Make your choice ", $adventurer->get_name(). " 1: Village || 2: Wilderness";
+    print "You have won the day! However, \n";
+    print "you are injured.. will you take refuge in the village tonight? \n";
+    print "Or will you camp in the wilderness for the night?\n";
+    print "Make your choice ", $adventurer->get_name(). " 1: Village || 2: Wilderness\n";
+    chomp(my $choice2 = <STDIN>);
+    if ($choice2 eq "1"){
+        print "Sleeping in village do some\n";
+    } else {
+        print "Sleeping in woods.. add some\n";
+    };
+
+    
 
 
 }
 
+# print color('bold green');
 
+# print color('reset');
 
 1;  # End of Quest package
