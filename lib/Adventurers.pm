@@ -14,6 +14,7 @@ sub new {
         fightStyle => $args{fightStyle},
         race       => $args{race},
         health     => $args{health} // 100,  # Default value for health is 100
+        backpack   => {},  # Initialize backpack as an empty hash
     };
     
     bless $self, $class;
@@ -41,7 +42,6 @@ sub create_adventurer {
         age        => $age,
         fightStyle => $fightStyle,
         race       => $race,
-        # The following line had a syntax issue because $health was not defined.
         # Assuming you want to use the default or provided value, you can set it as shown.
     );
 }
@@ -55,6 +55,36 @@ sub display {
     print "Fight Style: ", $self->{fightStyle}, "\n";
     print "Race: ", $self->{race}, "\n";
     print "Health: ", $self->{health}, "\n";  # Added health display
+    print "Backpack: ", $self->{backpack}, "\n";
+}
+
+sub add_to_backpack {
+    my ($self, $item, $quantity) = @_;
+    $quantity ||=1;
+    $self->{backpack}{$item} += $quantity;
+    print "$item has been added to your backpack.\n";
+}
+# Method to use an item from the backpack
+sub use_item {
+    my ($self, $item) = @_;
+    if (exists $self->{backpack}{$item} && $self->{backpack}{$item} > 0) {
+        $self->{backpack}{$item}--;
+        print "You used one $item. Remaining: $self->{backpack}{$item}.\n";
+        delete $self->{backpack}{$item} if $self->{backpack}{$item} == 0;
+    } else {
+        print "You don't have any $item in your backpack.\n";
+    }
+}
+
+# Method to delete an item from the backpack
+sub delete_item {
+    my ($self, $item) = @_;
+    if (exists $self->{backpack}{$item}) {
+        delete $self->{backpack}{$item};
+        print "$item has been removed from your backpack.\n";
+    } else {
+        print "You don't have any $item in your backpack.\n";
+    }
 }
 
 # Method to get the name of the adventurer
