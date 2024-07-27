@@ -13,6 +13,7 @@ sub village_quest{
     say "\t\t\tyou can search for yourself, or of course ask one of the locals where you can rest your weary head";
     say "1: Your a big adventurer, you can find it yourself";
     say "2: You just saved the day, ask for some help!";
+   
     say "Make your choice chose 1 or 2";
     chomp ( my $choice3 = <STDIN>);
     if ($choice3 eq "1"){
@@ -83,7 +84,6 @@ sub market_path{
     say "You thank Thrain and Brynja for there help and head to the Market as suggested.";
     
 }
-
 
 sub moving_on_path {
     my ($adventurer) = @_;

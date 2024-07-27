@@ -14,7 +14,9 @@ sub new {
         fightStyle => $args{fightStyle},
         race       => $args{race},
         health     => $args{health} // 100,  # Default value for health is 100
-        backpack   => {},  # Initialize backpack as an empty hash
+        backpack   => {
+            health_potion => 1,
+        }, 
     };
     
     bless $self, $class;

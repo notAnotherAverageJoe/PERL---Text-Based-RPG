@@ -7,6 +7,7 @@ use Term::ANSIColor;
 use Adventurers;
 use Quest;  
 use Harpy;
+use Inventory;
 
 use feature 'say';
 # Create a new adventurer based on user input
@@ -20,6 +21,7 @@ print"\n\n It is a pleasure to meet you ", $adventurer->get_name()," !";
 print"\n\n Just so you know...we don't often get ", $adventurer->get_race(),"'s around here 
 .... try and keep a low profile...\n";
 
+Inventory::backpack_management($adventurer);
 print"\n\nbut...anyway..let's get started...
 \tGreetings, brave adventurer! 
 \t\tWe're truly honored to have you join us.
