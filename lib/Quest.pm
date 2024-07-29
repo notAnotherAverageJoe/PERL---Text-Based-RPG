@@ -2,8 +2,10 @@ package Quest;
 
 use strict;
 use warnings;
+use List::Util qw(shuffle);
 use Term::ANSIColor;
 use Village;
+use Harpy;
 
 sub start_quest {
     my ($adventurer) = @_;  # Receive the Adventurer object
@@ -34,14 +36,22 @@ sub start_quest {
     
 }
 
+
 # Combat function
 sub combat {
     my ($adventurer) = @_;
-    my $harpy = Harpy->new(
-        name   => 'Stormclaw',
-        age    => 5,
-        health => 40,
+    # Define an array of harpies
+    my @harpies = (
+        Harpy->new(name => 'Stormclaw', age => 5, health => 40),
+        Harpy->new(name => 'Thunderwing', age => 3, health => 30),
+        Harpy->new(name => 'Darkfeather', age => 7, health => 50),
+        Harpy->new(name => 'RavenClaw', age => 17, health => 25),
     );
+
+    my $harpy = (shuffle(@harpies))[0]; # Shuffle and pick the first element
+
+  
+    
 
     # Display initial stats
     $adventurer->display();
