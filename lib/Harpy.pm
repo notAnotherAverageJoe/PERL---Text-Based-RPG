@@ -2,6 +2,8 @@ package Harpy;
 
 use strict;
 use warnings;
+use Term::ANSIColor;
+
 
 sub new {
     my ($class, %args) = @_;
@@ -27,6 +29,14 @@ sub take_damage {
     my ($self, $damage) = @_;
     $self->{health} -= $damage;
     $self->{health} = 0 if $self->{health} < 0;
+}
+sub harpy_display {
+    my ($self) = @_;
+    print color('bold red');
+    print "Name: ", $self->{name}, "\n";
+    print "Age: ", $self->{age}, "\n";
+    print "Health: ", $self->{health}, "\n";
+    print color('reset');
 }
 
 1;

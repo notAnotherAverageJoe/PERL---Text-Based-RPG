@@ -50,13 +50,10 @@ sub combat {
 
     my $harpy = (shuffle(@harpies))[0]; # Shuffle and pick the first element
 
-  
-    
 
     # Display initial stats
     $adventurer->display();
-    print "Harpy Name: ", $harpy->{name}, "\n";
-    print "Harpy Health: ", $harpy->{health}, "\n";
+    $harpy->harpy_display();
 
     # Combat loop
     while ($adventurer->{health} > 0 && $harpy->{health} > 0) {

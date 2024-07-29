@@ -5,7 +5,7 @@ use warnings;
 use feature 'say';
 
 
-sub backpack_management{
+sub backpack_management {
     my ($adventurer) = @_;  # Receive the Adventurer object
     say "Would you like to check your inventory?";
     say "Type 'yes' or 'no'";
